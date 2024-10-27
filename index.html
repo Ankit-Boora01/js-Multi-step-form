@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+
+  <main>
+    <div class="contanier">
+      <div class="sideBar">
+        <div class="barSteps">
+          <p id="step-count" class="step-count">1</p>
+          <p class="step">Step 1:<br><span> Your Info</span></p>
+        </div>
+        
+        <div class="barSteps">
+          <p id="step-count-2" class="step-count">2</p>
+          <p class="step">Step 2:<br><span> Select Plan</span></p>
+        </div>
+        
+        <div class="barSteps">
+          <p id="step-count-3" class="step-count">3</p>
+          <p class="step">Step 3:<br><span> Add-ons</span></p>
+        </div>
+        
+        <div class="barSteps">
+          <p id="step-count-4" class="step-count">4</p>
+          <p class="step">Step 4:<br><span> Summary</span></p>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-Step">
+          <h1>Personal info</h1>
+          <p id="sub-heading"> Please provide your name, email address, and phone number.</p>
+
+          <label> Name</label>
+          <input type="text" placeholder="e.g. Stephen King" required>
+          <br>
+          <label> Email Address</label>
+          <input type="email" placeholder="e.g. stephenking@lorem.com">
+          <br>
+          <label> Phone Number</label>
+          <input type="text" placeholder="e.g. +1 234 567 890">
+          <div id="btns">
+            <button onclick="nextBtn()" id="nxt-btn">Next Step</button>
+          </div>
+        </div>
+
+        <div class="form-Step">
+         
+          <h1>Select your plan</h1>
+          <p id="sub-heading"> You have the option of monthly or yearly billing.</p>
+          <div id="sub-contanier">
+            <div class="plans" id="plan-selection">
+              <div id="arcade" class="plan">
+                <img src="./assets/images/icon-arcade.svg" alt="Arcade Plan">
+                <p>Arcade</p>
+                <span id="rateArcade"></span><br>
+              </div>
+              <div id="advanced" class="plan">
+                <img src="./assets/images/icon-advanced.svg" alt="Advanced Plan">
+                <p>Advanced</p>
+                <span id="rateAdvanced"></span><br>
+              </div>
+              <div id="pro" class="plan">
+                <img src="./assets/images/icon-pro.svg" alt="Pro Plan">
+                <p>Pro</p>
+                <span id="ratePro"></span><br>
+              </div>
+            </div>
+            <div id="subscription-toggle">
+              <p id="monthly">Monthly</p>
+              <label id="switch">
+              <input type="checkbox" id="toggleSwitch">
+              <span class="slider round"></span>
+            </label>
+              <p id="yearly">Yearly</p>
+            </div>
+          </div>
+          
+          <div id="btns">
+            <button id="bck-btn">Go Back</button>
+            <button id="nxt-btn" >Next Step</button>
+          </div>
+        </div>
+
+        <div class="form-Step">
+         
+          <h1>Pick add-ons</h1>
+          <p id="sub-heading">Add-ons help enhance your gaming experience.</p>
+          <div class="pick-ups">
+            <div class="pick-up">
+              <input id="OS-pickup" type="checkbox">
+              <div id="pick-up-detials">
+              <p>Online service</p>
+              <span>Access to multiplayer games</span>
+            </div>
+            <p id="addons-price"></p>
+            </div>
+            <div class="pick-up">
+              <input id="LG-pickup" type="checkbox">
+              <div id="pick-up-detials">
+              <p>Larger storage</p>
+              <span>Extra 1TB of cloud save</span>
+            </div>
+            <p id="addons-price"></p>
+            </div>
+            <div class="pick-up">
+              <input id="CP-pickup" type="checkbox">
+              <div id="pick-up-detials">
+              <p>Customizable Profile</p>
+              <span>Custom theme on your profile</span>
+            </div>
+            <p id="addons-price"></p>
+            </div>
+          </div>
+          <div id="btns">
+            <button id="bck-btn">Go Back</button>
+            <button id="nxt-btn" onclick="handlePickupChange()">Next Step</button>
+          </div>
+        </div>
+
+        <div class="form-Step" id="confirmation-step">
+         
+          <h1>Finishing up</h1>
+          <p id="sub-heading">Double-check everything looks OK before confirming.</p>
+         <div class="final-detials">
+          <div id="plan-selected">
+            <p id="planName">Arcade(<span id="plantype">monthly</span>)
+              <br>
+              
+            </p>
+           <p id="finalPlan">NA</p>
+          </div>
+          <hr>
+          
+         </div>
+         <div id="total-price">
+          <p>Total (per<span id="finalType">month</span>)</p>
+          <span id="total_Amount"></span>
+        </div>
+          
+          <div id="btns">
+            <button id="bck-btn">Go Back</button>
+            <button id="confirm-btn"  onclick="thankyou()">Confirm</button>
+          </div>
+        </div>
+
+        <div class="form-Step" id="thankyou-step" style="display: none;">
+          <div class="thankyou">
+            <img src="./assets/images/icon-thank-you.svg" alt="Thank You Icon">
+            <h1>Thank you!</h1>
+            <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+          </div>
+        </div>
+        
+
+      </form>
+    </div>
+  </main>
+
+  <script src="javaScript.js">
+  </script>
+</body>
+</html>
